@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Interactive Excel sales dashboard with formulas, charts, VBA macros and Power Query, by Muhammad Tahir Mehmood.">
+<title>Excel Sales Performance Dashboard — Muhammad Tahir Mehmood</title>
+<style>
+  :root { --ink:#1b2a3d; --muted:#5b6878; --line:#dde3ea; --bg:#f5f7fa; --card:#fff;
+          --navy:#1f3a5f; --teal:#1b8a7a; --soft:#eef3f8; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink:#e3e8ee; --muted:#9aa6b3; --line:#2a3440; --bg:#11161c; --card:#18202a;
+            --navy:#8fb2e0; --teal:#4fc2ae; --soft:#1c2733; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.6 "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; }
+  .wrap { max-width:1040px; margin:0 auto; padding:40px 16px 64px; display:grid; gap:36px; }
+  .eyebrow { font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); font-weight:700; margin:0; }
+  h1 { font-size:clamp(28px,5vw,44px); line-height:1.1; margin:8px 0 12px; color:var(--navy); text-wrap:balance; }
+  h2 { font-size:22px; margin:0 0 14px; }
+  p { margin:0; }
+  .lede { color:var(--muted); max-width:62ch; }
+  .shot { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:10px; }
+  .shot img { display:block; width:100%; height:auto; border-radius:8px; }
+  .downloads { display:flex; flex-wrap:wrap; gap:10px; }
+  .btn { display:inline-flex; align-items:center; gap:8px; padding:11px 18px; border-radius:10px; text-decoration:none;
+         font-weight:600; border:1px solid var(--navy); color:var(--navy); background:var(--card); }
+  .btn.primary { background:var(--navy); color:var(--card); }
+  .btn:focus-visible { outline:2px solid var(--teal); outline-offset:2px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; }
+  .card h3 { margin:0 0 6px; font-size:16px; }
+  .card p { color:var(--muted); font-size:15px; }
+  ol { margin:0; padding-left:20px; display:grid; gap:6px; color:var(--muted); }
+  code { font-family:Consolas, "Courier New", monospace; font-size:14px; background:var(--soft); padding:1px 5px; border-radius:4px; }
+  footer { color:var(--muted); font-size:14px; border-top:1px solid var(--line); padding-top:18px; display:flex; flex-wrap:wrap; gap:16px; }
+  footer a { color:var(--navy); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <p class="eyebrow">Excel · VBA · Power Query</p>
+    <h1>Sales Performance Dashboard</h1>
+    <p class="lede">An interactive Excel dashboard for a fictional electronics retailer. Pick a region and every KPI, table and chart updates. Includes VBA macros for PDF reports and a Power Query script that cleans raw sales exports. All company names and data are made up for demonstration.</p>
+  </header>
+
+  <figure class="shot" style="margin:0">
+    <img src="dashboard.png" alt="Excel dashboard showing revenue, profit, target achievement, monthly and regional tables and three charts" width="1367" height="794">
+  </figure>
+
+  <section>
+    <h2>Download</h2>
+    <div class="downloads">
+      <a class="btn primary" href="Sales-Performance-Dashboard.xlsx" download>Excel workbook (.xlsx)</a>
+      <a class="btn" href="SalesDashboardMacros.bas" download>VBA macros (.bas)</a>
+      <a class="btn" href="CleanSalesData.m" download>Power Query script (.m)</a>
+      <a class="btn" href="sample_raw_sales.csv" download>Messy sample CSV</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>What it shows</h2>
+    <div class="grid">
+      <div class="card"><h3>Interactive filter</h3><p>A region drop-down drives every number and chart through SUMIFS and SUMPRODUCT.</p></div>
+      <div class="card"><h3>KPIs and targets</h3><p>Revenue, profit, margin, orders, average order value and target achievement with colour rules.</p></div>
+      <div class="card"><h3>Lookups and ranking</h3><p>INDEX/MATCH from a product table and a tie-safe Top 5 products list.</p></div>
+      <div class="card"><h3>Live charts</h3><p>Monthly revenue vs target, revenue and profit by region, and revenue by category.</p></div>
+      <div class="card"><h3>VBA automation</h3><p>Refresh, export the dashboard to PDF for one or all regions, and add new orders.</p></div>
+      <div class="card"><h3>Power Query cleaning</h3><p>Trims, fixes capitals, types dates, removes bad rows and duplicates: 29 messy rows become 25 clean orders.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How to use</h2>
+    <ol>
+      <li>Open the workbook and go to the <b>Dashboard</b> sheet.</li>
+      <li>Choose a region in the yellow cell <code>C5</code>.</li>
+      <li>For macros: save as <code>.xlsm</code>, press <b>Alt + F11</b>, then File → Import File → <code>SalesDashboardMacros.bas</code>.</li>
+      <li>For Power Query: Data → Get Data → Blank Query → Advanced Editor → paste <code>CleanSalesData.m</code> and set the file path.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <span>Built by Muhammad Tahir Mehmood</span>
+    <a href="https://github.com/tahir8203/excel-sales-dashboard">Source on GitHub</a>
+    <a href="https://www.fiverr.com/tahir8203">Hire me on Fiverr</a>
+  </footer>
+</main>
+</body>
+</html>

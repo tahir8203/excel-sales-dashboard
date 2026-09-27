@@ -45,3 +45,10 @@ An interactive Excel dashboard for a fictional electronics retailer, **Bluewave 
 3. Change `SourcePath` to where you saved `sample_raw_sales.csv` → Done → **Close & Load**
 
 The 29 messy rows become 25 clean, typed, de-duplicated orders.
+
+## Deploy on Vercel
+
+The repository includes `index.html` (a showcase page with the screenshot and download buttons) and `vercel.json`.
+
+1. Sign in at [vercel.com](https://vercel.com) with GitHub → **Add New → Project** → import this repository.
+2. Framework preset: **Other**. Leave Build Command empty and Output Directory as the root, then click **Deploy**.
